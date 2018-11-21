@@ -93,10 +93,10 @@ def has_error(json):
     """
     valid or invalid
     """
-    if 'success' in json:
-        return True
-    else:
+    if 'invalid' in json:
         return False
+    else:
+        return True
 
 
 def test_has_error():
@@ -179,12 +179,16 @@ def main():
     """
     print("请输入初始货币")
     currency_from=input()
+    while not iscurrency(currency_from):
+        currency_from=input("您输入的货币不合法，请重新输入")
     print("请输入要换算的货币")
     currency_to=input()
+    while not iscurrency(currency_to):
+        currency_to=input("您输入的货币不合法，请重新输入")
     print("请输入货币金额")
     amount_from=float(input())
-    print(exchange(currency_from, currency_to, amount_from))
-
+    print('最终金额:'+exchange(currency_from, currency_to, amount_from))
+  
 
 if __name__ == '__main__':
     main()
