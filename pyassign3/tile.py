@@ -171,7 +171,7 @@ def tuplize(solutions):
     for i in solutions:
         each_solution_tuple=[]
         for j in i:
-            each_solution_tuple.append((j[0],j[1]))
+            each_solution_tuple.append(tuple(j))
         solution_tuple.append(each_solution_tuple)
     return solution_tuple
   
