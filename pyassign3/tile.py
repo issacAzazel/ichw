@@ -162,6 +162,7 @@ def tuplize(solutions):
 
 def drawasquare(bob,left_corner,right_corner,color,size):
     '在知道左上角和右下角坐标的情况下画一个长方形'
+    bob.speed(0)
     bob.color(color)
     bob.pensize(size)
     bob.penup()
@@ -175,6 +176,7 @@ def drawasquare(bob,left_corner,right_corner,color,size):
     bob.forward(right_corner[0]-left_corner[0])
     bob.seth(90)
     bob.forward(-right_corner[1]+left_corner[1])
+    bob.hideturtle()
 
 
 
@@ -191,6 +193,18 @@ def turtles_see_you_again(solution,m,n,a,b,color,size):
         left_corner=[(min_coordinate[0])*50,-(min_coordinate[1])*50]
         right_corner=[(max_coordinate[0]+1)*50,-(max_coordinate[1]+1)*50]
         drawasquare(bob,left_corner,right_corner,color,size)
+
+
+
+def drawnumbers(m,n):
+    bob=turtle.Turtle()
+    bob.speed(0)
+    list_0=coordinate(numberlist(m,n),m,n)
+    for i in range(len(list_0)):
+        bob.penup()
+        bob.goto((2*list_0[i][0]+1)*25,-(2*list_0[i][1]+1)*25)
+        bob.write(int(i),font=('Courier',14,'bold'))
+        bob.hideturtle()
 
 
 
@@ -221,6 +235,7 @@ def main():
             for i in range(m*n):
                 list_all.append([i])
             turtles_see_you_again(list_all,m,n,a,b,'black',1)
+            drawnumbers(m,n)
 
     
 
