@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 '''tile.py: 铺瓷砖
 
 __author__ = "xhL"
