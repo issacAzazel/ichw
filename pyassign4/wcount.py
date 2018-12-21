@@ -14,8 +14,8 @@ import collections
 from collections import OrderedDict
 import string
 from string import punctuation  
-import re  
-
+import re
+import urllib.error
 
 
 def decodelines(aline):
@@ -41,10 +41,13 @@ def wcount(lines, topn=10):
     for i in lines:
         str_new=decodelines(i)
         str_newer=replacelines(str_new)
-        str_newer=str_new.lower()
+        str_newer=str_newer.lower()
         list_0=str_newer.split()
         n.update(list_0)
-    return(n.most_common(topn))
+    if topn>len(n):
+        return (n,most_common(len(n)))
+    else:
+        return(n.most_common(topn))
     pass
 
 
@@ -70,13 +73,24 @@ if __name__ == '__main__':
         print('  topn: how many (words count) to output. If not given, will output top 10 words')
         sys.exit(1)
     else:
+        request=urllib.request.Request(sys.argv[1])
         try:
-            main()
+            urllib.request.urlopen(request)
         except ValueError as err:
             print("error: {0}".format(err))
             print('please enter a integer for topn')
-        except IOError as err:
-            print("error: {0}".format(err))
+        except urllib.error.HTTPError as err:
+            print("error: {0}".format(err.code))
+            print("error: {0}".format(err.reason))
             print('please enter a correct url')
+        except urllib.error.URLError as err:
+            print("error: {0}".format(err.reason))
+            print('please enter a correct url')
+        else:
+            try:
+                main()
+            except ValueError as err:
+                print("error: {0}".format(err))
+                print('please enter a integer for topn')
     
     
