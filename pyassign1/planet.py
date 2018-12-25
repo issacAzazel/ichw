@@ -83,22 +83,24 @@ preparing(seaking_planet,600,0.1,9,0.75,6000)
 preparing(halei_planet,1500,0.967,6,0.75,5000)#行星准备#哈雷彗星小彩蛋！在画布上也看不见orz甚至要和太阳撞上啦！
 
 
-while True:
-    sign=solar_system.textinput("死循环警告", "是否退出(请填是或否)")
-    if sign=='是':
-        break
-    else:
-        for i in range(5760):
-            pra_ellipse(water_planet,60,0,4*i)
-            pra_ellipse(gold_planet,100,0,1.5*i)
-            pra_ellipse(earth_planet,125,0.03,i)
-            pra_ellipse(fire_planet,150,0.05,0.75*i)
-            pra_ellipse(tree_planet,300,0.1,0.5*i)
-            pra_ellipse(dust_planet,400,0.2,0.25*i)
-            pra_ellipse(skyking_planet,500,0.1,0.125*i)
-            pra_ellipse(seaking_planet,600,0.1,0.0625*i)
-            pra_ellipse(halei_planet,1500,0.967,0.5*i)#行星运动死循环以及退出
 
-        
+def main():
+    while True:
+        sign=solar_system.textinput("死循环警告", "是否退出(请填是或否)")
+        if sign=='是':
+            break
+        else:
+            for i in range(5760):
+                pra_ellipse(water_planet,60,0,4*i)
+                pra_ellipse(gold_planet,100,0,1.5*i)
+                pra_ellipse(earth_planet,125,0.03,i)
+                pra_ellipse(fire_planet,150,0.05,0.75*i)
+                pra_ellipse(tree_planet,300,0.1,0.5*i)
+                pra_ellipse(dust_planet,400,0.2,0.25*i)
+                pra_ellipse(skyking_planet,500,0.1,0.125*i)
+                pra_ellipse(seaking_planet,600,0.1,0.0625*i)
+                pra_ellipse(halei_planet,1500,0.967,0.5*i)#行星运动死循环以及退出
+
+            
 if __name__ == '__main__':
     main()
