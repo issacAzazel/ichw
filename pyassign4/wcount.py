@@ -39,10 +39,10 @@ def wcount(lines, topn = 10):
     """
     n=collections.Counter()
     for i in lines:
-        str_new=decodelines(i)
-        str_newer=replacelines(str_new)
-        str_newer=str_newer.lower()
-        list_0=str_newer.split()
+        str_new = decodelines(i)
+        str_newer = replacelines(str_new)
+        str_newer = str_newer.lower()
+        list_0 = str_newer.split()
         n.update(list_0)
     if topn>len(n):
         return (n.most_common(len(n)))
