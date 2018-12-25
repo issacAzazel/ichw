@@ -33,7 +33,7 @@ def replacelines(aline):
 
 
 
-def wcount(lines, topn=10):
+def wcount(lines, topn = 10):
     """count words from lines of text string, then sort by their counts
     in reverse order, output the topn (word count), each in one line. 
     """
@@ -55,11 +55,11 @@ def wcount(lines, topn=10):
 def main():
     'main module'
     doc = urlopen(sys.argv[1])
-    list_str_0=doc.readlines()
+    list_str_0 = doc.readlines()
     if len(sys.argv)>2:
-        list_final=wcount(list_str_0,int(sys.argv[2]))
+        list_final = wcount(list_str_0,int(sys.argv[2]))
     else:
-        list_final=wcount(list_str_0)
+        list_final = wcount(list_str_0)
     for i in list_final:
             print(i[0]+': '+str(i[1]))
 
@@ -73,7 +73,7 @@ if __name__ == '__main__':
         print('  topn: how many (words count) to output. If not given, will output top 10 words')
         sys.exit(1)
     else:
-        request=urllib.request.Request(sys.argv[1])
+        request = urllib.request.Request(sys.argv[1])
         try:
             urllib.request.urlopen(request)
         except ValueError as err:
