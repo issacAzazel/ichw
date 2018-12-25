@@ -45,7 +45,7 @@ def wcount(lines, topn=10):
         list_0=str_newer.split()
         n.update(list_0)
     if topn>len(n):
-        return (n,most_common(len(n)))
+        return (n.most_common(len(n)))
     else:
         return(n.most_common(topn))
     pass
